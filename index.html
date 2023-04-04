@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Project</title>
-    <script src="main.js"></script>
-</head>
-<body>
-    <h1>Example Project</h1>
-    <p>Check the output of the JavaScript code above.</p>
-</body>
+<html>
+  <head>
+    <title>Dictionary Project</title>
+  </head>
+  <body>
+    <h1>Dictionary Project</h1>
+    <p>Click a button to get the value for the corresponding key.</p>
+    <button onclick="getValue('key1')">Get Value for Key1</button>
+    <button onclick="getValue('key2')">Get Value for Key2</button>
+    <button onclick="getValue('key3')">Get Value for Key3</button>
+    <p id="output"></p>
+    <script>
+      // create the dictionary object
+      const dictionary = {
+        key1: 'value1',
+        key2: 'value2',
+        key3: 'value3'
+      };
+
+      // function to get the value for a key and output it to the HTML element
+      function getValue(key) {
+        // delete the key from the dictionary object
+        delete dictionary[key];
+        // get the value for the key and output it to the HTML element
+        const value = dictionary[key];
+        document.getElementById('output').innerHTML = value ? value : 'Key not found.';
+      }
+    </script>
+  </body>
 </html>
