@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dictionary Project</title>
-  </head>
-  <body>
-    <h1>Dictionary Project</h1>
-    <p>Click a button to get the value for the corresponding key.</p>
-    <button onclick="getValue('key1')">Get Value for Key1</button>
-    <button onclick="getValue('key2')">Get Value for Key2</button>
-    <button onclick="getValue('key3')">Get Value for Key3</button>
-    <p id="output"></p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Project Example</title>
+</head>
+<body>
     <script>
-      // create the dictionary object
-      const dictionary = {
-        key1: 'value1',
-        key2: 'value2',
-        key3: 'value3'
-      };
+        // Use the document.write() method and typeof operator to display the data type of a variable
+        let myVariable = "This is a string";
+        document.write("Data type of variable 'myVariable': " + typeof myVariable + "<br>");
 
-      // function to get the value for a key and output it to the HTML element
-      function getValue(key) {
-        // delete the key from the dictionary object
-        delete dictionary[key];
-        // get the value for the key and output it to the HTML element
-        const value = dictionary[key];
-        document.getElementById('output').innerHTML = value ? value : 'Key not found.';
-      }
+        // Write an expression combining a string and a number
+        let number = 42;
+        let combinedExpression = "The result is: " + number;
+        document.write(combinedExpression + "<br>");
+
+        // Write code using the following operators: ==, ===, >, <, &&, ||, ! and display them in the browser
+        let value1 = 5;
+        let value2 = "5";
+
+        // Comparing value1 and value2 with different operators
+        document.write("value1 == value2: " + (value1 == value2) + "<br>"); // true, because they have the same value
+        document.write("value1 === value2: " + (value1 === value2) + "<br>"); // false, because they have different data types
+
+        // Using > and < operators
+        document.write("value1 > value2: " + (value1 > value2) + "<br>"); // false
+        document.write("value1 < value2: " + (value1 < value2) + "<br>"); // true
+
+        // Using &&, ||, and ! operators
+        let condition1 = true;
+        let condition2 = false;
+        document.write("condition1 && condition2: " + (condition1 && condition2) + "<br>"); // false
+        document.write("condition1 || condition2: " + (condition1 || condition2) + "<br>"); // true
+        document.write("!condition1: " + (!condition1) + "<br>"); // false
     </script>
-  </body>
+</body>
 </html>
