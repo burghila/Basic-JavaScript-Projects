@@ -1,5 +1,4 @@
-    <script>
-        // Use the document.write() method and typeof operator to display the data type of a variable
+       // Use the document.write() method and typeof operator to display the data type of a variable
         let myVariable = "This is a string";
         document.write("Data type of variable 'myVariable': " + typeof myVariable + "<br>");
 
@@ -26,4 +25,3 @@
         document.write("condition1 && condition2: " + (condition1 && condition2) + "<br>"); // false
         document.write("condition1 || condition2: " + (condition1 || condition2) + "<br>"); // true
         document.write("!condition1: " + (!condition1) + "<br>"); // false
-    </script>
