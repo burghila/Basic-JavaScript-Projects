@@ -1,31 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dictionary Project</title>
+    <meta charset="utf-8">
+    <title>Minimum Project Requirements</title>
   </head>
   <body>
-    <h1>Dictionary Project</h1>
-    <p>Click a button to get the value for the corresponding key.</p>
-    <button onclick="getValue('key1')">Get Value for Key1</button>
-    <button onclick="getValue('key2')">Get Value for Key2</button>
-    <button onclick="getValue('key3')">Get Value for Key3</button>
-    <p id="output"></p>
-    <script>
-      // create the dictionary object
-      const dictionary = {
-        key1: 'value1',
-        key2: 'value2',
-        key3: 'value3'
-      };
-
-      // function to get the value for a key and output it to the HTML element
-      function getValue(key) {
-        // delete the key from the dictionary object
-        delete dictionary[key];
-        // get the value for the key and output it to the HTML element
-        const value = dictionary[key];
-        document.getElementById('output').innerHTML = value ? value : 'Key not found.';
-      }
-    </script>
+    <h1>Minimum Project Requirements</h1>
+    <label for="number-input">Enter a number:</label>
+    <input type="number" id="number-input">
+    <button onclick="checkNumber()">Check</button>
+    <p id="result"></p>
+    <script src="main.js"></script>
   </body>
 </html>

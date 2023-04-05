@@ -1,19 +1,32 @@
- // Welcome alert
-        window.alert("Welcome to our website!");
+// Ternary operator function that checks if a number is even or odd
+function checkNumber() {
+  const numberInput = document.getElementById("number-input").value;
+  const result = (numberInput % 2 === 0) ? "even" : "odd";
+  document.getElementById("result").innerHTML = `The number is ${result}.`;
+}
 
-        // Variables to store two strings
-        var greeting = "Hello, ";
-        var name = "user!";
+// Constructor function that creates a person object with name and age properties
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  
+  this.introduce = function() {
+    return `My name is ${this.name} and I am ${this.age} years old.`;
+  }
+}
 
-        // Concatenate the two string variables
-        var message = greeting + name;
+// Nested function that uses the Person constructor to create a new object and display its properties
+function createPerson(name, age) {
+  const person = new Person(name, age);
+  
+  function displayPerson() {
+    const output = document.createElement("p");
+    output.innerHTML = person.introduce();
+    document.body.appendChild(output);
+  }
+  
+  displayPerson();
+}
 
-        // Assign a color to the 'name' variable using the fontcolor() method
-        var coloredName = name.fontcolor("blue");
-
-        // Write an expression (simple addition)
-        var expressionResult = 5 + 7;
-
-        // Display concatenated message and expression result using document.write()
-        document.write(message + " Here's an expression result: " + expressionResult + "<br>");
-        document.write("The colored name is: " + coloredName);
+// Example usage of the createPerson function
+createPerson("John Doe", 30);
