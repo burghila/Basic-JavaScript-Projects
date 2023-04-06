@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.slideshow-container {
+    width: 100%;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slide.active {
+    display: block;
+}
