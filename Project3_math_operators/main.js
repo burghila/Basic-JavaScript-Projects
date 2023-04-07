@@ -10,6 +10,7 @@ const multiplyButton = document.getElementById("multiply");
 const moduloButton = document.getElementById("modulo");
 const incrementButton = document.getElementById("increment");
 const decrementButton = document.getElementById("decrement");
+const randomButton = document.getElementById("random");
 
 // Function to add two numbers
 function add() {
@@ -45,6 +46,12 @@ function decrement() {
     number2.value--;
 }
 
+// Function to generate a random number between 1 and 100
+function generateRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    result.textContent = randomNumber;
+}
+
 // Add event listeners for buttons
 addButton.addEventListener("click", add);
 subtractButton.addEventListener("click", subtract);
@@ -52,3 +59,5 @@ multiplyButton.addEventListener("click", multiply);
 moduloButton.addEventListener("click", modulo);
 incrementButton.addEventListener("click", increment);
 decrementButton.addEventListener("click", decrement);
+randomButton.addEventListener("click", generateRandomNumber);
+
