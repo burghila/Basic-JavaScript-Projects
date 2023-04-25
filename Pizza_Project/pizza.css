@@ -1,0 +1,76 @@
+body {
+    background-color: #f0f0f0; /* Choose a background color for the body */
+}
+
+h1 {
+    font-family: Arial, sans-serif; /* Choose a font family for h1 */
+    color: #333333; /* Choose a color for h1 */
+}
+
+h3 {
+    font-family: Arial, sans-serif; /* Choose a font family for h3 */
+    color: #666666; /* Choose a color for h3 */
+}
+
+div {
+    font-family: Arial, sans-serif; /* Choose a font family for div */
+    color: #333333; /* Choose a color for div */
+}
+
+#menuBG {
+    width: 400px;
+    height: 470px;
+    margin: 10px auto;
+}
+
+#frmMenu {
+    width: 400px;
+    height: 200px;
+}
+
+.left, .right {
+    width: 200px;
+    height: 200px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+#showText, #totalPrice {
+    width: 200px;
+    height: 190px;
+    margin: 0 auto;
+}
+
+#showText {
+    float: left;
+}
+
+#totalPrice {
+    float: right;
+}
+
+#cart {
+    top: 0;
+    margin: 0px auto;
+    width: 400px;
+    height: 200px;
+}
+
+#btnorder {
+    margin: 10px 0px 0px 100px;
+    width: 100px;
+    height: 40px;
+}
+#center {
+    width: 200px;
+    height: 200px;
+    float: left;
+    padding-left: 20px;
+}
+
