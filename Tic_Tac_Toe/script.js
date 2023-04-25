@@ -1,89 +1,70 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Variables to hold game state
-    const board = Array(9).fill(null);
-    let currentPlayer = 'X';
-    let gameOver = false;
+// Get the game board element from the HTML.
+const gameBoard = document.getElementById("gameBoard");
 
-    // DOM elements
-    const gameBoard = document.getElementById('gameBoard');
-    const resetBtn = document.getElementById('resetBtn');
+// Create the game board cells.
+for (let i = 0; i < 9; i++) {
+  const cell = document.createElement("div");
+  cell.classList.add("cell");
+  cell.id = i;
+  cell.addEventListener("click", handleCellClick);
+  gameBoard.appendChild(cell);
+}
 
-    // Initialize the game board
-    function initBoard() {
-        for (let i = 0; i < board.length; i++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            cell.addEventListener('click', () => onCellClick(i));
-            gameBoard.appendChild(cell);
-        }
+// Set the initial state of the game.
+let currentPlayer = "X";
+let gameOver = false;
+let selectedSquares = new Array(9).fill(null);
+
+// Handle clicks on the game board cells.
+function handleCellClick(event) {
+  const cell = event.target;
+  const index = parseInt(cell.id);
+
+  // Only allow clicks on empty cells when the game is not over.
+  if (selectedSquares[index] === null && !gameOver) {
+    cell.textContent = currentPlayer;
+    selectedSquares[index] = currentPlayer;
+
+    // Check for win or tie conditions.
+    if (checkWin(currentPlayer)) {
+      alert(`${currentPlayer} wins!`);
+      gameOver = true;
+    } else if (selectedSquares.every(square => square !== null)) {
+      alert("It's a tie!");
+      gameOver = true;
+    } else {
+      // Switch to the other player.
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
+  }
+}
 
-    // Handle cell click event
-    function onCellClick(index) {
-        // Ignore the click if the cell is already occupied or the game is over
-        if (board[index] !== null || gameOver) return;
+// Check if the specified player has won the game.
+function checkWin(player) {
+  const winConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
 
-        board[index] = currentPlayer;
-        gameBoard.children[index].textContent = currentPlayer;
+  return winConditions.some(condition => {
+    return condition.every(index => selectedSquares[index] === player);
+  });
+}
 
-        // Check if the current player has won
-        if (checkWin(currentPlayer)) {
-            alert(`${currentPlayer} wins!`);
-            gameOver = true;
-            return;
-        }
+// Reset the game board and state.
+document.getElementById("resetBtn").addEventListener("click", () => {
+  currentPlayer = "X";
+  gameOver = false;
+  selectedSquares = new Array(9).fill(null);
 
-        // Check for a draw
-        if (board.every(cell => cell !== null)) {
-            alert('It\'s a draw!');
-            gameOver = true;
-            return;
-        }
-
-        // Switch to the other player
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    }
-
-    // Check if the player has won
-    function checkWin(player) {
-        // Winning combinations
-        const winConditions = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6],
-        ];
-
-        // Iterate through the winning combinations to check for a win
-        for (const condition of winConditions) {
-            const [a, b, c] = condition;
-            if (board[a] === player && board[b] === player && board[c] === player) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    // Reset the game state
-    function resetGame() {
-        board.fill(null);
-        currentPlayer = 'X';
-        gameOver = false;
-
-        // Clear the game board display
-        for (const cell of gameBoard.children) {
-            cell.textContent = '';
-        }
-    }
-
-    // Attach reset button event listener
-    resetBtn.addEventListener('click', resetGame);
-
-    // Initialize the game board
-    initBoard();
+  for (let i = 0; i < 9; i++) {
+    const cell = document.getElementById(String(i));
+    cell.textContent = "";
+  }
 });
