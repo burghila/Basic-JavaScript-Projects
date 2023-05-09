@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        // Wait until the document is fully loaded
+        $(document).ready(function() {
+            // Append new HTML to the body
+            // This creates a div with id 'container' containing another div 'inner' with an h1 element and three paragraphs
+            $("body").append(
+                "<div id='container'>\
+                    <div id='inner'>\
+                        <h1>Basic jQuery</h1>\
+                        <p id='1'>Paragraph 1</p>\
+                        <p id='2'>Paragraph 2</p>\
+                        <p id='3'>Paragraph 3</p>\
+                    </div>\
+                </div>"
+            );
+
+            // Change the color of the second paragraph (with id '2') to red using css method
+            $("#2").css({"color":"red"});
+
+            // When the third paragraph (with id '3') is clicked, execute the function
+            // The function hides the h1 element using hide method
+            $("#3").click(function() {
+                $('h1').hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- The body is initially empty, and will be filled by the jQuery script -->
+</body>
+</html>
